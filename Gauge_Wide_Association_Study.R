@@ -43,8 +43,13 @@ getGaugeEA(Gauge.list[i,1],Gauge.list[i,2])
 }
 
 for(i in seq(1,dim(Gauge.list)[1])){
-  print(Gauge.list[i,1])
-  print(get(Gauge.list[i,1]))
+  write(get(Gauge.list[i,1]), paste("~/Dropbox/Kayaking/GWAS/Text/",Gauge.list[i,1], sep=""),ncol=3,append=TRUE, sep = "\t")
+  writing_to_CSV <- read.table(paste("~/Dropbox/Kayaking/GWAS/Text/",Gauge.list[i,1], sep=""), header=F)
+  write.csv(writing_to_CSV,paste("~/Dropbox/Kayaking/GWAS/CSV/",Gauge.list[i,1],".csv", sep=""))
 }
 
-print(hurley())
+hurley <- hurley()
+write(hurley, "~/Dropbox/Kayaking/GWAS/Text/hurley_flow", ncol=2, append=TRUE, sep = "\t")
+writing_to_CSV <- read.table("~/Dropbox/Kayaking/GWAS/Text/Hurley_Flow", header=F)
+write.csv(writing_to_CSV,"~/Dropbox/Kayaking/GWAS/CSV/Hurley_Flow.csv")
+
